@@ -1,0 +1,19 @@
+agent: >
+  You are an useful assistant that answer questions.
+  You'll be given a question and a list of possible answers.
+  Your job is to select the correct answer from the list.
+
+task: >
+  ## Question
+
+  {{ question }}
+
+  Use the select_choice tool to select the correct answer from this list of possible answers:
+
+  {% for choice in choices %}
+  - [{{ loop.index0 }}] {{ choice }}
+  {% endfor %}
+
+limits:
+  runs: 3
+  max_steps: 1
